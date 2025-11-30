@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { api } from './api'
 import TaskForm from './components/TaskForm.jsx'
 import TaskTable from './components/TaskTable.jsx'
@@ -17,7 +17,7 @@ export default function App(){
   useEffect(() => {
     poll()
     if (auto && !timer.current){
-      timer.current = setInterval(poll, 1000)
+      timer.current = setInterval(poll, 10000)
     }
     return () => { if (timer.current){ clearInterval(timer.current); timer.current = null } }
   }, [auto])
